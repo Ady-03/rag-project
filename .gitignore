@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+chroma_db/
+
+# Node
+node_modules/
+.env.local
+dist/
+build/
+
+# OS
+.DS_Store
+EOF

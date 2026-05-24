@@ -1,0 +1,107 @@
+.sidebar {
+  width: 260px;
+  background: #111;
+  border-right: 1px solid #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.sidebar-logo span {
+  color: #6ee7b7;
+}
+
+.sidebar-label {
+  font-size: 11px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.drop-zone {
+  border: 1.5px dashed #333;
+  border-radius: 10px;
+  padding: 24px 12px;
+  text-align: center;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.drop-zone:hover,
+.drop-zone.active {
+  border-color: #6ee7b7;
+  color: #6ee7b7;
+}
+
+.drop-zone.uploading {
+  border-color: #444;
+  color: #444;
+  cursor: not-allowed;
+}
+
+.drop-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.file-card {
+  background: #1a1a1a;
+  border: 0.5px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6ee7b7;
+  flex-shrink: 0;
+}
+
+.file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  color: #ccc;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-chunks {
+  font-size: 11px;
+  color: #555;
+  margin-top: 2px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 11px;
+  color: #333;
+  line-height: 1.6;
+}

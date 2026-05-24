@@ -36,7 +36,8 @@ function Sidebar({ open, onUploadSuccess, chatHistory, user, onSignOut }) {
 
   return (
     <div className={`sidebar ${open ? "" : "collapsed"}`}>
-
+        
+    
       {/* Logo */}
       <div className="logo-row">
         <div className="logo-icon">

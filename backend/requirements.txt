@@ -2,8 +2,9 @@ fastapi
 uvicorn
 langchain
 langchain-community
+langchain-chroma
 chromadb
 pypdf
-sentence-transformers
 groq
 python-multipart
+python-dotenv

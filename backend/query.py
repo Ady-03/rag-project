@@ -1,19 +1,15 @@
 from langchain_chroma import Chroma
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_community.embeddings import FakeEmbeddings
 from groq import Groq
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
 CHROMA_PATH = "chroma_db"
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def query_pdf(question: str, collection_name: str):
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=os.getenv("HF_TOKEN"),
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    embeddings = FakeEmbeddings(size=384)
 
     vectorstore = Chroma(
         collection_name=collection_name,

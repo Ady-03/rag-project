@@ -38,5 +38,6 @@ async def query(request: QueryRequest):
     return result
 
 @app.get("/")
+@app.head("/")
 def root():
     return {"status": "AskMyDocs backend running"}

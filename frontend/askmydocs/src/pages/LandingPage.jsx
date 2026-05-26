@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { auth, googleProvider } from "../firebase";
 import {
-  signInWithPopup,
+  signInWithRedirect,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword
 } from "firebase/auth";
@@ -307,12 +307,12 @@ function LandingPage() {
   }, []);
 
   const handleGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  try {
+    await signInWithRedirect(auth, googleProvider);
+  } catch (err) {
+    setError(err.message);
+  }
+};
 
   const handleSubmit = async () => {
     setError("");

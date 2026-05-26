@@ -1,12 +1,11 @@
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_community.embeddings import FakeEmbeddings
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
 CHROMA_PATH = "chroma_db"
 
 def ingest_pdf(file_path: str, collection_name: str):
@@ -19,10 +18,7 @@ def ingest_pdf(file_path: str, collection_name: str):
     )
     chunks = splitter.split_documents(documents)
 
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=os.getenv("HF_TOKEN"),
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    embeddings = FakeEmbeddings(size=384)
 
     vectorstore = Chroma.from_documents(
         documents=chunks,

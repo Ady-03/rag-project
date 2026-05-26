@@ -3,8 +3,11 @@ uvicorn
 langchain
 langchain-community
 langchain-chroma
+langchain-google-genai
 chromadb
 pypdf
 groq
 python-multipart
 python-dotenv
+langchain-text-splitters
+google-generativeai

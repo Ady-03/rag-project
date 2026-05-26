@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { auth, googleProvider } from "../firebase";
 import {
-  signInWithRedirect,
-  getRedirectResult,
+  signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword
 } from "firebase/auth";
+import "./LandingPage.css";
 
 // ── ANIMATED LOGO COMPONENT ──
 function NeuralLogo() {
@@ -215,16 +215,6 @@ function LandingPage() {
   const [error, setError] = useState("");
   const canvasRef = useRef(null);
 
-   useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result?.user) {
-          console.log("Logged in:", result.user);
-        }
-      })
-      .catch((err) => setError(err.message));
-  }, []);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -316,13 +306,13 @@ function LandingPage() {
     };
   }, []);
 
- const handleGoogle = async () => {
-  try {
-    await signInWithRedirect(auth, googleProvider);
-  } catch (err) {
-    setError(err.message);
-  }
-};
+  const handleGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   const handleSubmit = async () => {
     setError("");

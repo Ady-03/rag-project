@@ -1,0 +1,3 @@
+(.venv) PS C:\Users\DELL\Desktop\Codes\Projects\RAG_project\backend> cd C:\Users\DELL\Desktop\Codes\Projects\RAG_project\backend
+>> .\venv\Scripts\activate
+(venv) PS C:\Users\DELL\Desktop\Codes\Projects\RAG_project\backend> uvicorn main:app --reload                              

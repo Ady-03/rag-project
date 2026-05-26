@@ -1,5 +1,5 @@
 from langchain_chroma import Chroma
-from langchain_community.embeddings import FakeEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from groq import Groq
 from dotenv import load_dotenv
 import os
@@ -9,7 +9,10 @@ CHROMA_PATH = "chroma_db"
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def query_pdf(question: str, collection_name: str):
-    embeddings = FakeEmbeddings(size=384)
+    embeddings = GoogleGenerativeAIEmbeddings(
+        google_api_key=os.getenv("GOOGLE_API_KEY"),
+        model="models/embedding-001"
+    )
 
     vectorstore = Chroma(
         collection_name=collection_name,

@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
-from langchain_community.embeddings import FakeEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
 import os
 
@@ -18,7 +18,10 @@ def ingest_pdf(file_path: str, collection_name: str):
     )
     chunks = splitter.split_documents(documents)
 
-    embeddings = FakeEmbeddings(size=384)
+    embeddings = GoogleGenerativeAIEmbeddings(
+        google_api_key=os.getenv("GOOGLE_API_KEY"),
+        model="models/embedding-001"
+    )
 
     vectorstore = Chroma.from_documents(
         documents=chunks,

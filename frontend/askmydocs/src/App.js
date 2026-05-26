@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { auth } from "./firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut, getRedirectResult } from "firebase/auth";
 import Sidebar from "./components/Sidebar";
 import ChatWindow from "./components/ChatWindow";
 import LandingPage from "./pages/LandingPage";
@@ -15,6 +15,8 @@ function App() {
   const [chatHistory, setChatHistory] = useState([]);
 
   useEffect(() => {
+    getRedirectResult(auth).catch((err) => console.error(err));
+
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
       setLoading(false);

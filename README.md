@@ -10,27 +10,6 @@
 
 ---
 
-## 📚 Core Concepts Explained
-
-### What is RAG?
-
-**Retrieval-Augmented Generation** is an AI architecture that combines:
-
-1. **Retrieval** — finding relevant information from a knowledge base
-2. **Generation** — using an LLM to generate answers based on retrieved context
-
-Instead of relying on the LLM's training data (which may be outdated or hallucinated), RAG grounds the model in your actual documents.
-
-### What are Embeddings?
-
-Embeddings convert text into vectors — lists of numbers that represent semantic meaning. Similar sentences have similar vectors. This allows mathematical comparison of meaning using cosine similarity.
-
-### Why ChromaDB?
-
-ChromaDB is a lightweight vector database that stores embeddings and enables fast similarity search. When you ask a question, ChromaDB finds the stored chunks whose vectors are closest to your question vector.
-
----
-
 ## 🌐 Live Demo
 
 | Service        | URL                                                                                    |
@@ -78,6 +57,27 @@ No hallucinations. No guessing. Just facts from your files.
 | **Vector Similarity Search** | Finds chunks closest in meaning to your question              | ChromaDB       |
 | **RAG**                      | Retrieval-Augmented Generation — grounds LLM in your document | LangChain      |
 | **LLM**                      | Generates fluent answers from retrieved context               | Groq / LLaMA 3 |
+
+---
+
+## 📚 Core Concepts Explained
+
+### What is RAG?
+
+**Retrieval-Augmented Generation** is an AI architecture that combines:
+
+1. **Retrieval** — finding relevant information from a knowledge base
+2. **Generation** — using an LLM to generate answers based on retrieved context
+
+Instead of relying on the LLM's training data (which may be outdated or hallucinated), RAG grounds the model in your actual documents.
+
+### What are Embeddings?
+
+Embeddings convert text into vectors — lists of numbers that represent semantic meaning. Similar sentences have similar vectors. This allows mathematical comparison of meaning using cosine similarity.
+
+### Why ChromaDB?
+
+ChromaDB is a lightweight vector database that stores embeddings and enables fast similarity search. When you ask a question, ChromaDB finds the stored chunks whose vectors are closest to your question vector.
 
 ---
 

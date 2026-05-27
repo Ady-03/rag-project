@@ -320,13 +320,6 @@ Health check.
 
 ---
 
-## 👥 Team & Collaboration
-
-This project was built collaboratively using Git:
-
-- **Backend** (`backend/`) — Python, FastAPI, RAG pipeline
-- **Frontend** (`frontend/`) — React, Firebase Auth, UI
-
 ### Branch Strategy
 
 ```

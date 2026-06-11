@@ -15,7 +15,13 @@ function App() {
   const [chatHistory, setChatHistory] = useState([]);
 
   useEffect(() => {
-    getRedirectResult(auth).catch((err) => console.error(err));
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result?.user) {
+          setUser(result.user);
+        }
+      })
+      .catch((err) => console.error("Redirect error:", err));
 
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);

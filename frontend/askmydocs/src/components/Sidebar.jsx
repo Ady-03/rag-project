@@ -14,7 +14,8 @@ function Sidebar({ open, onUploadSuccess, chatHistory, user, onSignOut }) {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const res = await axios.post("http://127.0.0.1:8000/upload", formData);
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/upload`, formData);
+      //const res = await axios.post("http://localhost:8000/upload", formData);
       setUploadedFile({
         name: file.name,
         chunks: res.data.chunks,
